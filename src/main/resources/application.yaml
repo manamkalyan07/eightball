@@ -3,8 +3,8 @@ spring:
     name: eightball
   data:
     mongodb:
-      database: "fakeDatabase"
-      uri: "mongodb://fakeURI"
+      database: "eightball"
+      uri: "mongodb://localhost"
 
 eightball:
   answers:

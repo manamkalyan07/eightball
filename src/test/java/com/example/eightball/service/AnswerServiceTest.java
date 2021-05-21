@@ -21,7 +21,7 @@ public class AnswerServiceTest {
 
   @BeforeEach
   public void setUp() {
-    answerService = new AnswerService(mongoTemplate, eightBallConfig);
+    // answerService = new AnswerService(mongoTemplate, eightBallConfig);
   }
 
   @Test
