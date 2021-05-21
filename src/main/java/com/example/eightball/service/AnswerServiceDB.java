@@ -15,12 +15,13 @@ public class AnswerServiceDB {
     private MongoTemplate mongoTemplate;
 
 
-    public void saveEightAnswerDoc(EightBallResponse eightBallResponse) {
-        EightBallAnswerDocument eightBallAnswerDocument = new EightBallAnswerDocument();
-        eightBallAnswerDocument.setQuestion(eightBallResponse.getQuestion());
-        eightBallAnswerDocument.setAnswerType(eightBallResponse.getAnswerType());
-        eightBallAnswerDocument.setAnswer(eightBallResponse.getAnswer());
+    public EightBallResponse saveEightAnswerDoc(EightBallAnswerDocument eightBallAnswerDocument) {
         mongoTemplate.save(eightBallAnswerDocument);
+        EightBallResponse eightBallResponse = new EightBallResponse();
+        eightBallResponse.setQuestion(eightBallAnswerDocument.getQuestion());
+        eightBallResponse.setAnswerType(eightBallAnswerDocument.getAnswerType());
+        eightBallResponse.setAnswer(eightBallAnswerDocument.getAnswer());
+        return eightBallResponse;
 
     }
 

@@ -31,12 +31,14 @@ public class AnswerService {
     Object[] answerTypes = eightBallConfig.getAnswers().keySet().toArray();
     Object answerType = answerTypes[new Random().nextInt(answerTypes.length)];
     List<String> answerValues = eightBallConfig.getAnswers().get(answerType);
-    eightBallResponse.setAnswerType(answerType.toString());
-    eightBallResponse.setAnswer(answerValues.get(new Random().nextInt(answerValues.size())));
 
-    answerServiceDB.saveEightAnswerDoc(eightBallResponse);
+    EightBallAnswerDocument eightBallAnswerDocument = new EightBallAnswerDocument();
+    eightBallAnswerDocument.setQuestion(eightBallRequest.getQuestion());
+    eightBallAnswerDocument.setAnswerType(answerType.toString());
+    eightBallAnswerDocument.setAnswer(answerValues.get(new Random().nextInt(answerValues.size())));
 
-    return eightBallResponse;
+    return answerServiceDB.saveEightAnswerDoc(eightBallAnswerDocument);
+
   }
 
   public List<EightBallAnswerDocument> getAllSavedAnswer() {
