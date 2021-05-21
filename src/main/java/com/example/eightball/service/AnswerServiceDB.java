@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AnswerServiceDB {
 
@@ -20,5 +22,9 @@ public class AnswerServiceDB {
         eightBallAnswerDocument.setAnswer(eightBallResponse.getAnswer());
         mongoTemplate.save(eightBallAnswerDocument);
 
+    }
+
+    public List<EightBallAnswerDocument> getAllSavedAnswer() {
+        return mongoTemplate.findAll(EightBallAnswerDocument.class);
     }
 }

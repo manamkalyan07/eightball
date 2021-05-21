@@ -39,4 +39,7 @@ public class AnswerService {
     return eightBallResponse;
   }
 
+  public List<EightBallAnswerDocument> getAllSavedAnswer() {
+    return answerServiceDB.getAllSavedAnswer();
+  }
 }
